@@ -1,0 +1,10 @@
+{
+  "name": "file-uploader",
+  "author": "Michael Christenson II",
+  "description": "An HTML5 javascript only drag and drop file uploader",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "coffee-script": "*"
+  }
+}
