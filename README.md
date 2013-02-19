@@ -66,8 +66,8 @@ Requirements
 Roadmap
 -------
 
-1. Add automatic results area injection
-1. Add automatic file input injection
+1. <strike>Add automatic results area injection</strike> (Done)
+1. <strike>Add automatic file input injection</strike> (Done)
 1. Get rid of dependency on jQuery
 1. Add options for overriding the ajax submit method
 1. Add options for overriding error, complete, and success callbacks
