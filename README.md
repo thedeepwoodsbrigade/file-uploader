@@ -37,6 +37,11 @@ FileUploader takes a minimum of two arguments:
 
 By default the uploader will use 'POST' as the method used in the ajax call.
 
+Extras
+------
+
+If you add a data-file-uploader-content attribute to the node you are going to use, FileUploader will append it into the results area for you.
+
 Browser Support
 ---------------
 

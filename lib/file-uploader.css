@@ -1,0 +1,12 @@
+.file-uploader {
+  margin: 0.5em; }
+  .file-uploader .select-area, .file-uploader .drop-area {
+    margin-bottom: 0.5em; }
+  .file-uploader .drop-area {
+    width: 100%;
+    background-color: #cccccc;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px; }
