@@ -1,7 +1,6 @@
 class @FileUploader
-  constructor: (@fileUploadSelector, @ajaxUrl) ->
+  constructor: (@fileUploadSelector, @ajaxUrl, @options={}) ->
     @uniqueId = 'file-upload-' + document.querySelectorAll(@fileUploadSelector).length
-
     fileUpload = document.querySelector @fileUploadSelector
     if !fileUpload.classList.contains('file-uploader')
       fileUpload.classList.add 'file-uploader'
@@ -27,6 +26,8 @@ class @FileUploader
     fileUpload.appendChild selectArea
     fileUpload.appendChild resultArea
 
+    if fileUpload.hasAttribute('data-file-uploader-form-name')
+      @formName = fileUpload.getAttribute('data-file-uploader-form-name')
     if fileUpload.hasAttribute('data-file-uploader-content')
       resultArea.innerHTML = fileUpload.getAttribute('data-file-uploader-content')
       fileUpload.removeAttribute('data-file-uploader-content')
@@ -49,12 +50,22 @@ class @FileUploader
     @uploadFile file for file in files
 
   uploadFile: (file) =>
-    data = new FormData()
-    data.append 'asset[image]', file
+    if @formName != undefined
+      formName = @formName
+    else
+      formName = 'asset[image]'
 
+    if @options && @options.method
+      ajaxMethod = @options.method
+    else
+      ajaxMethod = 'POST'
+
+    data = new FormData()
+    data.append formName, file
+    
     ajaxHash = 
       url: @ajaxUrl
-      type: 'POST'
+      type: ajaxMethod
       data: data
       cache: false
       contentType: false
