@@ -42,6 +42,12 @@ Extras
 
 If you add a data-file-uploader-content attribute to the node you are going to use, FileUploader will append it into the results area for you.
 
+There is also the beginnings of support for hooking into the ajax call. I've added an options hash for a third argument. That hash currently supports the following options:
+
+* method: POST, PUT, etc.
+* before: a function to run before the ajax request is triggered
+* complete: a function to run after the ajax request has been completed
+
 Browser Support
 ---------------
 
@@ -70,7 +76,7 @@ Roadmap
 1. <strike>Add automatic file input injection</strike> (Done)
 1. Get rid of dependency on jQuery
 1. Add options for overriding the ajax submit method
-1. Add options for overriding error, complete, and success callbacks
+1. Add options for overriding error, complete, and success callbacks (Support for ajax before and complete are implemented)
 1. Setup automated node compilation of coffeescript to javascript
 1. Setup proper testing
 1. Check support for IE

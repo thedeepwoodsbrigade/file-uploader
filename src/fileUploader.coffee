@@ -55,10 +55,11 @@ class @FileUploader
     else
       formName = 'asset[image]'
 
-    if @options && @options.method
-      ajaxMethod = @options.method
-    else
-      ajaxMethod = 'POST'
+    if @options
+      if @options.method
+        ajaxMethod = @options.method
+      else
+        ajaxMethod = 'POST'
 
     data = new FormData()
     data.append formName, file
@@ -72,4 +73,11 @@ class @FileUploader
       processData: false
       success: (response) =>
         $('#' + @uniqueId + ' .result-area').append response
+
+    if @options && @options.before
+      ajaxHash['beforeSend'] = @options.before
+
+    if @options && @options.complete
+      ajaxHash['complete'] = @options.complete
+    
     $.ajax ajaxHash, 'json'
